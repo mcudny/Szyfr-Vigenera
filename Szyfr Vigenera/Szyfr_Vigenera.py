@@ -3,7 +3,7 @@ def sprawdz_klucz(klucz):
     error = []
 
     if klucz == "":
-        print("\nError: Klucz nie może być  pusty!")
+        print("\nError: Klucz nie może być pusty!")
         return False
 
     if len(klucz) < 8:
@@ -46,14 +46,13 @@ def pobierz_tekst(komunikat):
         if tekst.strip() != "":
             return tekst
 
-        print("Error: Tekst nie może być pusty!")
+        print("\nError: Tekst nie może być pusty!\n")
 
 
-def szyfruj(tekst, klucz):
+def logika(tekst, klucz, kierunek):
 
     wynik = ""
     klucz = klucz.upper()
-
     pozycja_klucza = 0
 
     for znak in tekst:
@@ -70,7 +69,7 @@ def szyfruj(tekst, klucz):
             litera_klucza = klucz[pozycja_klucza % len(klucz)]
             wartosc_klucza = ord(litera_klucza) - ord('A')
 
-            nowa_wartosc = (wartosc_tekstu + wartosc_klucza) % 26
+            nowa_wartosc = (wartosc_tekstu + kierunek * wartosc_klucza) % 26
 
             wynik += chr(nowa_wartosc + baza)
 
@@ -80,39 +79,13 @@ def szyfruj(tekst, klucz):
             wynik += znak
 
     return wynik
+
+def szyfruj(tekst, klucz):
+    return logika(tekst, klucz, +1)
 
 
 def deszyfruj(tekst, klucz):
-
-    wynik = ""
-    klucz = klucz.upper()
-
-    pozycja_klucza = 0
-
-    for znak in tekst:
-
-        if znak.isalpha() and znak.isascii():
-
-            if znak.isupper():
-                baza = ord('A')
-            else:
-                baza = ord('a')
-
-            wartosc_tekstu = ord(znak) - baza
-
-            litera_klucza = klucz[pozycja_klucza % len(klucz)]
-            wartosc_klucza = ord(litera_klucza) - ord('A')
-
-            nowa_wartosc = (wartosc_tekstu - wartosc_klucza) % 26
-
-            wynik += chr(nowa_wartosc + baza)
-
-            pozycja_klucza += 1
-
-        else:
-            wynik += znak
-
-    return wynik
+    return logika(tekst, klucz, -1)
 
 
 def main():
