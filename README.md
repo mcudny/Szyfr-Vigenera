@@ -1,4 +1,6 @@
 # Szyfr Vigenère’a
+	Mateusz Cudny - 166174
+	Kacper Kujawski - 166188
 
 ## 1. Opis projektu
 
