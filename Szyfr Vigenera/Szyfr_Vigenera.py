@@ -120,7 +120,7 @@ def main():
     while True:
 
         print("-" * 40)
-        print("         SZYFR VIGENÈRE'A")
+        print("         Szyfr Vigenère'a")
         print("-" * 40)
         print("Dostępne opcje:")
         print("1. Zaszyfruj tekst")
