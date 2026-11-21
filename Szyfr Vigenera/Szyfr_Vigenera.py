@@ -80,6 +80,7 @@ def logika(tekst, klucz, kierunek):
 
     return wynik
 
+
 def szyfruj(tekst, klucz):
     return logika(tekst, klucz, +1)
 
