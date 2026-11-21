@@ -3,7 +3,7 @@ def sprawdz_klucz(klucz):
     error = []
 
     if klucz == "":
-        print("\nError: Klucz nie moze byc pusty!")
+        print("\nError: Klucz nie może być  pusty!")
         return False
 
     if len(klucz) < 8:
@@ -38,10 +38,10 @@ def pobierz_klucz():
             return klucz
 
 
-def pobierz_tekst():
+def pobierz_tekst(komunikat):
 
     while True:
-        tekst = input("Podaj tekst jawny: ")
+        tekst = input(komunikat)
 
         if tekst.strip() != "":
             return tekst
@@ -114,7 +114,9 @@ def deszyfruj(tekst, klucz):
 
     return wynik
 
+
 def main():
+
     while True:
 
         print("-" * 40)
@@ -131,14 +133,14 @@ def main():
 
         if wybor == "1":
 
-            tekst = pobierz_tekst()
+            tekst = pobierz_tekst("Podaj tekst jawny: ")
             klucz = pobierz_klucz()
 
             print("\nSzyfrogram:", szyfruj(tekst, klucz))
             print("\n")
         elif wybor == "2":
 
-            tekst = pobierz_tekst()
+            tekst = pobierz_tekst("Podaj szyfrogram: ")
             klucz = pobierz_klucz()
 
             print("\nOdszyfrowany tekst:", deszyfruj(tekst, klucz))
@@ -150,9 +152,10 @@ def main():
 
         else:
 
-            print("\nError: Niepoprawny wybor!")
-            print("Sprobuj ponownie.")
+            print("\nError: Niepoprawny wybór!")
+            print("Spróbuj ponownie.")
             print("\n")
+
 
 if __name__ == "__main__":
     try:
